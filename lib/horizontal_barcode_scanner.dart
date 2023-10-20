@@ -36,6 +36,7 @@ class HorizontalBarcodeScanner {
       context,
       MaterialPageRoute(
         builder: (context) => ScannerPage(
+          cameraResolution: cameraResolution,
           formats: const [
             BarcodeFormat.itf,
             BarcodeFormat.codabar,

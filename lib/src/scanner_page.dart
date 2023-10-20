@@ -12,6 +12,7 @@ import 'transparent_hole.dart';
 class ScannerPage extends StatefulWidget {
   const ScannerPage({
     super.key,
+    required this.cameraResolution,
     required this.formats,
     required this.showLine,
     required this.lineColor,
@@ -23,6 +24,7 @@ class ScannerPage extends StatefulWidget {
     required this.scannerHeight,
     required this.loadingWidget,
   });
+  final ResolutionPreset cameraResolution;
   final List<BarcodeFormat> formats;
   final bool showLine;
   final Color lineColor;
@@ -122,7 +124,7 @@ class ScannerPageState extends State<ScannerPage> {
     _firstCamera = cameras.first;
     _cameraController = CameraController(
       _firstCamera!,
-      ResolutionPreset.medium, //ResolutionPreset.high,
+      widget.cameraResolution,
       enableAudio: false,
       imageFormatGroup: Platform.isAndroid
           ? ImageFormatGroup.nv21
